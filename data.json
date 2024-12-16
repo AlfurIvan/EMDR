@@ -1,0 +1,1192 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add MFA Method",
+      "content_type": 7,
+      "codename": "add_mfamethod"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change MFA Method",
+      "content_type": 7,
+      "codename": "change_mfamethod"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete MFA Method",
+      "content_type": 7,
+      "codename": "delete_mfamethod"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view MFA Method",
+      "content_type": 7,
+      "codename": "view_mfamethod"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add customer",
+      "content_type": 8,
+      "codename": "add_customer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change customer",
+      "content_type": 8,
+      "codename": "change_customer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete customer",
+      "content_type": 8,
+      "codename": "delete_customer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view customer",
+      "content_type": 8,
+      "codename": "view_customer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add mitigation strategy",
+      "content_type": 9,
+      "codename": "add_mitigationstrategy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change mitigation strategy",
+      "content_type": 9,
+      "codename": "change_mitigationstrategy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete mitigation strategy",
+      "content_type": 9,
+      "codename": "delete_mitigationstrategy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view mitigation strategy",
+      "content_type": 9,
+      "codename": "view_mitigationstrategy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add rule",
+      "content_type": 10,
+      "codename": "add_rule"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change rule",
+      "content_type": 10,
+      "codename": "change_rule"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete rule",
+      "content_type": 10,
+      "codename": "delete_rule"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view rule",
+      "content_type": 10,
+      "codename": "view_rule"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add source",
+      "content_type": 11,
+      "codename": "add_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change source",
+      "content_type": 11,
+      "codename": "change_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete source",
+      "content_type": 11,
+      "codename": "delete_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view source",
+      "content_type": 11,
+      "codename": "view_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add endpoint",
+      "content_type": 12,
+      "codename": "add_endpoint"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change endpoint",
+      "content_type": 12,
+      "codename": "change_endpoint"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete endpoint",
+      "content_type": 12,
+      "codename": "delete_endpoint"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view endpoint",
+      "content_type": 12,
+      "codename": "view_endpoint"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add alert",
+      "content_type": 13,
+      "codename": "add_alert"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change alert",
+      "content_type": 13,
+      "codename": "change_alert"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete alert",
+      "content_type": 13,
+      "codename": "delete_alert"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view alert",
+      "content_type": 13,
+      "codename": "view_alert"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add user profile",
+      "content_type": 14,
+      "codename": "add_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change user profile",
+      "content_type": 14,
+      "codename": "change_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete user profile",
+      "content_type": 14,
+      "codename": "delete_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view user profile",
+      "content_type": 14,
+      "codename": "view_userprofile"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "SOC",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ZD777PEVZ6gKvvNrKvhK1K$mh+BMupO0/qqfi6uwDI5mA2XNq+1Bu+X7Gc++NPd3U0=",
+      "last_login": "2024-12-12T14:55:43.829Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-12-12T14:55:24.288Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$6sIvVL9rXIIarP7yFrjth1$nY41kElq1aB/nBt0k3AW/vqzwhoe6LIXdAcIxGmJUV4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "angela_SOC",
+      "first_name": "Angelina",
+      "last_name": "Shliushenko",
+      "email": "shlyhangel@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-12-12T15:10:20Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$u0cdgi8VazIH5UaaXWaylk$Vvwt/5EJH++GuTtlNzMz1swsAsEB8ld4M1GmgPDG1ZE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "alexander_SOC",
+      "first_name": "Alex",
+      "last_name": "Bubchenko",
+      "email": "bubububa@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-12-12T15:10:44Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wIJKkGRELQevLKv12oGblj$+qhtsHdCgWw986HFmg0GZV6XcdDU4pdHMJ0+FWoxzng=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "KPI",
+      "first_name": "Alex",
+      "last_name": "Bruner",
+      "email": "alexbrunner@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-12-12T15:11:37Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$SwVu7uXbcLZvWjX48jmA4J$ItpSHX1g685Yyw9CtjSHxvWGj5EEp12J0QRTXO2WA8E=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "KHAI",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "johndoe@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-12-12T15:12:59Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "trench",
+      "model": "mfamethod"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "customer"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "mitigationstrategy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "rule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "source"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "endpoint"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "alert"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "alertviewer",
+      "model": "userprofile"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "9v8cgklpbtrssbtzahenpl2g3fvkzqt2",
+    "fields": {
+      "session_data": ".eJxVjMsOgjAQRf-la9NYKMzg0j3fQKbzsKiBhMLK-O9KwkK395xzX26gbc3DVnQZRnEXF9zpd0vED512IHeabrPneVqXMfld8Qctvp9Fn9fD_TvIVPK31kbQEAJBx8GqYBoT1glCxaAoao11bLEWg5YtMSEDn9uITBK5Rvf-AAyuOUA:1tLkbP:eGDmcqhU2xoXW0auXvUpjZ87d0SW8V9WRPwNhcjuxRo",
+      "expire_date": "2024-12-26T14:55:43.915Z"
+    }
+  },
+  {
+    "model": "alertviewer.customer",
+    "pk": 1,
+    "fields": {
+      "company_name": "KPI",
+      "industry": "education",
+      "contact_email": "contact@kpi.edu"
+    }
+  },
+  {
+    "model": "alertviewer.customer",
+    "pk": 2,
+    "fields": {
+      "company_name": "KHAI",
+      "industry": "education",
+      "contact_email": "contact@khai.edu"
+    }
+  },
+  {
+    "model": "alertviewer.endpoint",
+    "pk": 1,
+    "fields": {
+      "customer": 1,
+      "host": "kpi.com",
+      "ip": "192.168.1.1",
+      "name": "KPI main site server",
+      "type": "Server",
+      "is_active": true
+    }
+  },
+  {
+    "model": "alertviewer.endpoint",
+    "pk": 2,
+    "fields": {
+      "customer": 2,
+      "host": "khai.com",
+      "ip": "192.168.1.2",
+      "name": "KHAI main site server",
+      "type": "Server",
+      "is_active": true
+    }
+  },
+  {
+    "model": "alertviewer.userprofile",
+    "pk": 1,
+    "fields": {
+      "user": 5,
+      "customer": 2,
+      "is_analyst": false
+    }
+  },
+  {
+    "model": "alertviewer.userprofile",
+    "pk": 2,
+    "fields": {
+      "user": 4,
+      "customer": 1,
+      "is_analyst": false
+    }
+  },
+  {
+    "model": "alertviewer.userprofile",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "customer": null,
+      "is_analyst": true
+    }
+  },
+  {
+    "model": "alertviewer.userprofile",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "customer": null,
+      "is_analyst": true
+    }
+  },
+  {
+    "model": "alertviewer.userprofile",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "customer": null,
+      "is_analyst": true
+    }
+  },
+  {
+    "model": "alertviewer.source",
+    "pk": 1,
+    "fields": {
+      "name": "Firewall Logs",
+      "description": "Collects information about network traffic allowed or blocked by the firewall, including IP addresses, ports, protocols, and actions taken. It helps detect potential intrusion attempts, unauthorized access, or unusual traffic patterns."
+    }
+  },
+  {
+    "model": "alertviewer.source",
+    "pk": 2,
+    "fields": {
+      "name": "Endpoint Protection Logs:",
+      "description": "Gathers data from endpoint security solutions, such as antivirus software or EDR agents. These logs contain information about detected threats, quarantined files, scans, and system health checks, providing insights into local endpoint security status."
+    }
+  },
+  {
+    "model": "alertviewer.source",
+    "pk": 3,
+    "fields": {
+      "name": "Authentication Logs",
+      "description": "Tracks login attempts and user authentication activity across systems. It includes successful and failed login attempts, multi-factor authentication (MFA) events, and any suspicious activities like login from unusual locations or IPs."
+    }
+  },
+  {
+    "model": "alertviewer.source",
+    "pk": 4,
+    "fields": {
+      "name": "DNS Logs",
+      "description": "Records Domain Name System (DNS) queries made by endpoints, capturing information about domain names accessed, response codes, and potential signs of communication with malicious or suspicious domains often used in botnet and phishing attacks."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 1,
+    "fields": {
+      "name": "Suspicious User Behavior",
+      "description": "Identifies deviations from a user╥s typical behavior, such as accessing files they don╥t usually interact with or logging in from unusual locations, indicating potential account compromise."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 2,
+    "fields": {
+      "name": "Execution of PowerShell Scripts",
+      "description": "Detects the execution of PowerShell scripts that are not part of normal system operations, as they are commonly used in malware attacks, such as fileless malware."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 3,
+    "fields": {
+      "name": "Outbound Traffic to Known Malicious IP",
+      "description": "Flags outbound network traffic directed to IP addresses that are categorized as malicious or associated with known cybercriminal organizations, such as command-and-control servers."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 4,
+    "fields": {
+      "name": "Access to Sensitive Data",
+      "description": "This rule is triggered when a user accesses sensitive or restricted data without the necessary permissions, flagging potential data leakage or unauthorized access."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 5,
+    "fields": {
+      "name": "Admin Privilege Escalation",
+      "description": "Alerts when a user account gains elevated privileges unexpectedly, indicating a potential privilege escalation attack that could compromise the endpoint."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 6,
+    "fields": {
+      "name": "Malicious File Hash Detection",
+      "description": "Identifies files on endpoints whose hash matches known signatures of malware or other potentially harmful software based on threat intelligence feeds."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 7,
+    "fields": {
+      "name": "Unusual File Manipulation Activity",
+      "description": "This rule is triggered when a user uploads an unusually large or potentially dangerous file type, such as executables or scripts, which could be an attempt to exploit vulnerabilities."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 8,
+    "fields": {
+      "name": "Unusual Network Traffic",
+      "description": "Monitors network traffic for patterns that deviate from the norm, such as large data transfers or communication with suspicious IP addresses, suggesting possible data exfiltration or malware activity."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 9,
+    "fields": {
+      "name": "Failed Login Attempt",
+      "description": "Triggers an alert when there are multiple failed login attempts to a system within a short period, indicating potential brute force or credential stuffing attacks."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 10,
+    "fields": {
+      "name": "Suspicious Process Execution",
+      "description": "Detects processes that are known to be associated with malicious activity, such as unauthorized system utilities, remote access tools, or malware executables running on endpoints."
+    }
+  },
+  {
+    "model": "alertviewer.rule",
+    "pk": 11,
+    "fields": {
+      "name": "Disabled Antivirus or Security Software",
+      "description": "Generates an alert when security software, such as antivirus or endpoint protection tools, is disabled or tampered with, which could signal an attempt to disable defenses during an attack."
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 1,
+    "fields": {
+      "title": "Suspicious PowerShell Activity Detected",
+      "description": "A PowerShell script with obfuscated commands was executed on the host 192.168.1.15. This activity may indicate the presence of a malware dropper or an attempt to bypass security controls.",
+      "timestamp": "2024-12-15T23:12:11.493Z",
+      "endpoint": 1,
+      "source": 1,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "low",
+      "rules": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 2,
+    "fields": {
+      "title": "Unauthorized Access Attempt to Sensitive File",
+      "description": "A failed attempt to access a protected file (/etc/shadow) was detected from an unrecognized user account on server-02. This behavior could signify credential theft or privilege escalation attempts.",
+      "timestamp": "2024-12-15T23:12:59.685Z",
+      "endpoint": 1,
+      "source": 1,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "low",
+      "rules": [
+        1,
+        8,
+        10
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 3,
+    "fields": {
+      "title": "Malware Signature Match Found",
+      "description": "A file named payload.exe detected on host 10.0.0.25 matches known malware signature \"Trojan.Win32.Agent\". The file was quarantined for further investigation.",
+      "timestamp": "2024-12-15T23:13:57.218Z",
+      "endpoint": 1,
+      "source": 1,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "low",
+      "rules": [
+        2,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 4,
+    "fields": {
+      "title": "Unusual Network Traffic Detected",
+      "description": "Host server-03 initiated a large number of outbound connections to an unknown IP address 185.67.123.45 on port 4444. This behavior is consistent with Command and Control (C2) activity.",
+      "timestamp": "2024-12-15T23:14:44.216Z",
+      "endpoint": 1,
+      "source": 4,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "low",
+      "rules": [
+        8,
+        10
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 5,
+    "fields": {
+      "title": "Ransomware-Like Activity Detected",
+      "description": "Rapid file encryption was observed on shared directory \\\\fileserver\\docs initiated by user john.doe. The process was terminated, and access to the host was restricted to prevent further damage.",
+      "timestamp": "2024-12-15T23:15:31.656Z",
+      "endpoint": 1,
+      "source": 2,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "high",
+      "rules": [
+        6,
+        10
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 6,
+    "fields": {
+      "title": "Privilege Escalation Attempt Detected",
+      "description": "The binary /usr/bin/sudo was executed with an unauthorized user account on endpoint-07. This activity may indicate a compromised user account or exploit attempt.",
+      "timestamp": "2024-12-15T23:16:25.214Z",
+      "endpoint": 1,
+      "source": 2,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "medium",
+      "rules": [
+        1,
+        5,
+        9
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 7,
+    "fields": {
+      "title": "Suspicious Registry Modification",
+      "description": "A modification was detected to the registry key HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run on host 192.168.50.10. This change is often associated with persistence mechanisms used by malware.",
+      "timestamp": "2024-12-15T23:17:06.844Z",
+      "endpoint": 1,
+      "source": 2,
+      "customer": 1,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "medium",
+      "rules": [
+        3,
+        9,
+        10
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 8,
+    "fields": {
+      "title": "Brute Force Login Attempts Detected",
+      "description": "Multiple failed login attempts were detected on endpoint workstation-12 from IP 203.0.113.56. The account admin was targeted, suggesting a possible brute force attack.",
+      "timestamp": "2024-12-15T23:17:53.588Z",
+      "endpoint": 2,
+      "source": 3,
+      "customer": 2,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "medium",
+      "rules": [
+        1,
+        4,
+        9
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 9,
+    "fields": {
+      "title": "Suspicious Application Installed",
+      "description": "An unapproved application CobaltStrike.exe was installed on endpoint-05. The application is associated with known attack frameworks and was flagged for investigation.",
+      "timestamp": "2024-12-15T23:18:37.056Z",
+      "endpoint": 2,
+      "source": 2,
+      "customer": 2,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "high",
+      "rules": [
+        1,
+        6,
+        11
+      ]
+    }
+  },
+  {
+    "model": "alertviewer.alert",
+    "pk": 10,
+    "fields": {
+      "title": "Data Exfiltration Attempt Detected",
+      "description": "A large volume of sensitive files from \\\\corporate\\confidential was uploaded to an external FTP server at 198.51.100.22. The transfer was initiated by user jane.doe, which requires further investigation to verify legitimacy.",
+      "timestamp": "2024-12-15T23:19:29.523Z",
+      "endpoint": 2,
+      "source": 4,
+      "customer": 2,
+      "validator": null,
+      "validated_at": null,
+      "status": "open",
+      "closure_code": "NA",
+      "mitigation_strategy": null,
+      "mitigation": "NA",
+      "resolved_at": null,
+      "resolver": null,
+      "severity": "medium",
+      "rules": [
+        1,
+        4,
+        5,
+        7
+      ]
+    }
+  }
+]
