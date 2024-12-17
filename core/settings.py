@@ -131,8 +131,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'My API',
-    'DESCRIPTION': 'A detailed description of my API.',
+    'TITLE': "IZh_EMDR_API_documentation",
+    'DESCRIPTION': 'Description of my API.',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,  # Set to False if you want to disable the schema in production
 }
@@ -156,4 +156,25 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': 'your-signing-key',
+}
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+
+# Django Trench MFA settings
+TRENCH_AUTH = {
+    "MFA_METHODS": {
+        "app": {
+            "VERBOSE_NAME": "Authenticator App",
+            "HANDLER": "trench.backends.application.ApplicationMessageDispatcher",
+            "VALIDITY_PERIOD": 30,  # Time period for TOTP validity (in seconds)
+            "TOTP_ISSUER": "YourAppName",  # Issuer name for TOTP QR codes
+            "TOTP_DIGITS": 6,  # Number of digits in the OTP
+            "REQUIRED": False,  # Optional: set to True if MFA is mandatory
+        }
+    },
+    "USER_MFA_MODEL": "trench.MFAMethod",
+    "OTP_CODE_LENGTH": 6,  # Default length for OTP codes
+    "MFA_METHODS_DEFAULTS": {"EMAIL_SUBJECT": "Your MFA code"},
+    "CONFIRM_DISABLE_WITH_CODE": True,
+    "CONFIRM_NEW_MFA_METHOD_WITH_CODE": True,
+    "APPLICATION_ISSUER_NAME": "IZh_EMDR",
 }

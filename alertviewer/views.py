@@ -16,7 +16,7 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak
-from rest_framework import status, permissions, serializers
+from rest_framework import status, serializers, permissions
 from rest_framework.exceptions import NotFound
 from rest_framework.fields import CharField
 from rest_framework.generics import RetrieveUpdateAPIView, ListAPIView, CreateAPIView
@@ -25,7 +25,7 @@ from rest_framework.views import APIView
 
 from .filters import AlertFilter
 from .models import Alert, Endpoint, Customer, MitigationStrategy
-from .permissions import IsCustomer, IsAnalyst, is_analyst
+from .permissions import IsCustomer, IsAnalyst, is_analyst, IsAuthenticatedWithMFA
 from .serializers import AlertSerializer, MitigationStrategySerializer, EndpointSerializer, AlertCreateSerializer, \
     AlertMitigationSelectSerializer, EndpointCustSerializer
 
@@ -39,7 +39,7 @@ class ReceiveAlertView(CreateAPIView):
     """Receiving object, creating of the new Alert if data is valid"""
     queryset = Alert.objects.all()
     serializer_class = AlertCreateSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticatedWithMFA]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -88,14 +88,16 @@ class ReceiveAlertView(CreateAPIView):
 class AlertListView(ListAPIView):
     """Alert List representation for Analysts"""
 
-    permission_classes = (permissions.IsAuthenticated, IsAnalyst)
+    permission_classes = (IsAuthenticatedWithMFA, IsAnalyst)
     queryset = Alert.objects.all()
     serializer_class = AlertSerializer
     filterset_class = AlertFilter
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        return self.filter_queryset_by_timestamp(queryset)
 
+    def filter_queryset_by_timestamp(self, queryset):
         before = self.request.query_params.get('timestamp_before')
         after = self.request.query_params.get('timestamp_after')
 
@@ -104,8 +106,18 @@ class AlertListView(ListAPIView):
 
         if after:
             queryset = queryset.filter(timestamp__gte=after)
-
         return queryset
+
+
+class CustomerAlertListView(AlertListView):
+    """List representation of Alerts for Customer."""
+    permission_classes = (permissions.IsAuthenticated, IsCustomer)
+
+    def get_queryset(self):
+        queryset = Alert.objects.filter(customer=self.request.user.profile.customer)
+        return self.filter_queryset_by_timestamp(queryset)
+
+
 
 
 @extend_schema_view(
@@ -136,9 +148,35 @@ class AlertDetailView(RetrieveUpdateAPIView):
     """Analysis of the details of the alert object. Patch for setting closure_code and Post for assigning mitigation_strategy."""
     queryset = Alert.objects.all()
     serializer_class = AlertSerializer
-    permission_classes = (permissions.IsAuthenticated, IsAnalyst)
+    permission_classes = (IsAuthenticatedWithMFA, IsAnalyst)
     lookup_field = 'pk'
     allowed_methods = ['GET', 'PATCH', 'POST']
+
+    def post(self, request, *args, **kwargs):
+        """
+        Create MitigationStrategy and attach it to the alert.
+        """
+        alert = self.get_object()
+
+        mitigation_data = request.data.get('description')
+        if not mitigation_data:
+            return Response({'detail': 'Mitigation strategy description is required.'},
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        mitigation_serializer = MitigationStrategySerializer(data={"description":mitigation_data})
+        pre_existing_strategy = MitigationStrategy.objects.filter(description=mitigation_data).first()
+        if not mitigation_serializer.is_valid():
+            return Response(mitigation_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        elif not pre_existing_strategy:
+            mitigation_strategy = mitigation_serializer.save()
+            alert.mitigation_strategy = mitigation_strategy
+        elif pre_existing_strategy:
+
+            alert.mitigation_strategy = pre_existing_strategy
+        alert.save()
+        return Response({'detail': 'Mitigation strategy created and linked to alert.'},
+                        status=status.HTTP_201_CREATED)
+
 
     def patch(self, request, *args, **kwargs):
         """
@@ -157,38 +195,17 @@ class AlertDetailView(RetrieveUpdateAPIView):
 
         return Response({'detail': 'Closure code updated successfully.'}, status=status.HTTP_200_OK)
 
-    def post(self, request, *args, **kwargs):
-        """
-        Create MitigationStrategy and attach it to the alert.
-        """
-        alert = self.get_object()
-
-        mitigation_data = request.data.get('mitigation_strategy')
-        if not mitigation_data or 'description' not in mitigation_data:
-            return Response({'detail': 'Mitigation strategy description is required.'},
-                            status=status.HTTP_400_BAD_REQUEST)
-
-        mitigation_serializer = MitigationStrategySerializer(data=mitigation_data)
-        if mitigation_serializer.is_valid(raise_exception=True):
-            mitigation_strategy = mitigation_serializer.save()
-            alert.mitigation_strategy = mitigation_strategy
-            alert.save()
-            return Response({'detail': 'Mitigation strategy created and linked to alert.'},
-                            status=status.HTTP_201_CREATED)
-
-        return Response(mitigation_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class MitigationStrategyListView(ListAPIView):
     """List of MitigationStrategy objects for Analysts."""
     queryset = MitigationStrategy.objects.all()
     serializer_class = MitigationStrategySerializer
-    permission_classes = (permissions.IsAuthenticated, IsAnalyst)
+    permission_classes = (IsAuthenticatedWithMFA, IsAnalyst)
 
 
 class NonMaliciousListView(ListAPIView):
     """List of non-malicious Alerts that customer can remediate by himself"""
-    queryset = Alert.objects.filter(status='TPNM')
+    queryset = Alert.objects.filter(closure_code='TPNM')
     serializer_class = AlertSerializer
     permission_classes = [permissions.IsAuthenticated, IsCustomer]
 
@@ -225,7 +242,6 @@ class NonMaliciousUpdateResolveView(RetrieveUpdateAPIView):
     """
     View to handle non-malicious alerts. Customers can mark alerts as mitigated or resolved.
     """
-    queryset = Alert.objects
     permission_classes = [permissions.IsAuthenticated, IsCustomer]
 
     def get_queryset(self):
@@ -233,7 +249,7 @@ class NonMaliciousUpdateResolveView(RetrieveUpdateAPIView):
         Filter by the alert of a specific customer.
         """
         customer = self.request.user.profile.customer
-        return self.queryset.filter(Q(customer=customer) & Q(status='TPNM'))
+        return Alert.objects.filter(Q(customer=customer) & Q(closure_code='TPNM'))
 
     def get_serializer_class(self):
         """
@@ -278,21 +294,28 @@ class CompanyEndpointsView(ListAPIView):
     serializer_class = EndpointCustSerializer
 
     def get_queryset(self):
-        company = self.request.user.profile.customer
-        return Endpoint.objects.filter(company=company)
+        customer = self.request.user.profile.customer
+        return Endpoint.objects.filter(customer=customer)
 
 
 class AnalystCompanyEndpointsView(ListAPIView):
-    permission_classes = [permissions.IsAuthenticated, IsAnalyst]
+    permission_classes = [IsAuthenticatedWithMFA, IsAnalyst]
     serializer_class = EndpointSerializer
 
     def get_queryset(self):
         company_name = self.kwargs.get("company_name")
-        return Endpoint.objects.filter(company__name=company_name)
+        return Endpoint.objects.filter(customer__company_name=company_name)
 
-
+@extend_schema(
+    summary="Retrieve or deactivate an Endpoint",
+    methods=["GET", "PATCH"],
+    request=None,  # Порожнє тіло для PATCH
+    responses={
+        200: EndpointSerializer,
+    },
+)
 class EndpointDetailView(RetrieveUpdateAPIView):
-    permission_classes = [permissions.IsAuthenticated, IsAnalyst]
+    permission_classes = [IsAuthenticatedWithMFA, IsAnalyst]
     serializer_class = EndpointSerializer
     queryset = Endpoint.objects.all()
     allowed_methods = ['GET', 'PATCH']
@@ -463,9 +486,6 @@ class CustomerAlertDashboardView(APIView):
         after = request.query_params.get('after', (now() - timedelta(days=7)).isoformat())
         before = request.query_params.get('before', now().isoformat())
 
-        if not after or not before:
-            return Response({"detail": "Both 'after' and 'before' query parameters are required."}, status=400)
-
         # Convert 'after' and 'before' to datetime
         try:
             after = datetime.fromisoformat(after)
@@ -522,9 +542,54 @@ class CustomerAlertDashboardView(APIView):
         return Response(response_data)
 
 
+@extend_schema(
+    summary="Generate PDF Report",
+    description=(
+        "Generates a PDF report for a given customer within a specified time range. "
+        "The report includes alert summaries, event counts, alert statuses, sources, "
+        "and endpoint status information."
+    ),
+    parameters=[
+        OpenApiParameter(
+            name="company_name",
+            description="The name of the customer's company.",
+            required=False,
+            type=str,
+            location=OpenApiParameter.QUERY,
+        ),
+        OpenApiParameter(
+            name="after",
+            description="Start date (ISO 8601 format, e.g., '2024-12-01T00:00:00') for fetching report data.",
+            required=False,
+            type=str,
+            location=OpenApiParameter.QUERY,
+        ),
+        OpenApiParameter(
+            name="before",
+            description="End date (ISO 8601 format, e.g., '2024-12-07T00:00:00') for fetching report data.",
+            required=False,
+            type=str,
+            location=OpenApiParameter.QUERY,
+        ),
+    ],
+    responses={
+        200: OpenApiResponse(
+            response=None,
+            description="A downloadable PDF file containing the generated report.",
+        ),
+        400: OpenApiResponse(
+            response=Response,
+            description="Invalid date format or request parameters.",
+        ),
+        404: OpenApiResponse(
+            response=Response,
+            description="Customer not found.",
+        ),
+    },
+)
 class PDFReportView(APIView):
     def get(self, request, *args, **kwargs):
-        if is_analyst(request) or True:
+        if is_analyst(request)  :
             company_name = kwargs.get('company_name')
             try:
                 customer = Customer.objects.get(company_name=company_name)
@@ -578,7 +643,8 @@ class PDFReportView(APIView):
 
         # Generate PDF
         buffer = BytesIO()
-        doc = SimpleDocTemplate(buffer, pagesize=A4, onFirstPage=self.add_page_number, onLaterPages=self.add_page_number)
+        doc = SimpleDocTemplate(buffer, pagesize=A4, onFirstPage=self.add_page_number,
+                                onLaterPages=self.add_page_number)
         elements = []
         styles = getSampleStyleSheet()
 
@@ -713,4 +779,4 @@ class PDFReportView(APIView):
         page_number = f"Page {doc.page}"
         canvas.setFont('Helvetica', 10)
         canvas.setFillColor(colors.black)
-        canvas.drawString(500, 20, page_number)  # Adjust position as needed
+        canvas.drawString(500, 20, page_number)
